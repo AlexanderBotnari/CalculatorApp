@@ -7,11 +7,67 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+    <Button
+            android:text="%"
+            android:textSize="40sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/percentButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/equalButton"
+            app:layout_constraintTop_toBottomOf="@+id/zeroButton2"/>
+    <Button
+            android:text="="
+            android:textSize="40sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/equalButton"
+            app:layout_constraintStart_toEndOf="@+id/percentButton" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/plusMinusButton"
+            app:layout_constraintTop_toTopOf="@+id/percentButton"/>
+    <Button
+            android:text="+/-"
+            android:textSize="40sp"
+            android:layout_width="188dp"
+            android:layout_height="wrap_content" android:id="@+id/plusMinusButton"
+            app:layout_constraintStart_toEndOf="@+id/equalButton" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/equalButton"/>
+    <Button
+            android:text="C"
+            android:textSize="40sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/clearButton2"
+            app:layout_constraintTop_toTopOf="@+id/pointButton"
+            app:layout_constraintStart_toEndOf="@+id/pointButton" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/plusButton"/>
+    <Button
+            android:text="0"
+            android:textSize="40sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/zeroButton2"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/pointButton" app:layout_constraintTop_toBottomOf="@+id/button1"/>
+    <Button
+            android:text="+"
+            android:textSize="40sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/plusButton2"
+            app:layout_constraintTop_toBottomOf="@+id/button3"
+            app:layout_constraintStart_toEndOf="@+id/clearButton" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+            android:text="."
+            android:textSize="40sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pointButton2"
+            app:layout_constraintTop_toTopOf="@+id/zeroButton"
+            app:layout_constraintStart_toEndOf="@+id/zeroButton" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/clearButton"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:textSize="30sp"
+            android:text="0"
             android:inputType="textPersonName"
             android:hint="Enter a number"
             android:ems="10"
@@ -52,15 +108,6 @@
             app:layout_constraintTop_toBottomOf="@+id/button3"
             app:layout_constraintStart_toEndOf="@+id/clearButton" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-            android:text="="
-            android:textSize="40sp"
-            android:layout_width="match_parent"
-            android:layout_margin="32dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/equalButton"
-            app:layout_constraintStart_toStartOf="@+id/zeroButton"
-            app:layout_constraintTop_toBottomOf="@+id/plusButton"/>
     <Button
             android:text="/"
             android:textSize="40sp"
