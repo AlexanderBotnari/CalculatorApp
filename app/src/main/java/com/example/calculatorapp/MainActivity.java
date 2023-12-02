@@ -1,6 +1,7 @@
 package com.example.calculatorapp;
 
 import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -78,18 +79,73 @@ public class MainActivity extends AppCompatActivity {
         String currentText = editTextInputNumber.getText().toString();
 
         switch (number){
-            case "1": currentText = currentText + "1"; break;
-            case "2": currentText = currentText + "2"; break;
-            case "3": currentText = currentText + "3"; break;
-            case "4": currentText = currentText + "4"; break;
-            case "5": currentText = currentText + "5"; break;
-            case "6": currentText = currentText + "6"; break;
-            case "7": currentText = currentText + "7"; break;
-            case "8": currentText = currentText + "8"; break;
-            case "9": currentText = currentText + "9"; break;
-            case "0": currentText = currentText + "0"; break;
+            case "1":
+                if (zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = currentText.substring(1);
+                }
+                currentText = currentText + "1";
+                break;
+            case "2":
+                if (zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = currentText.substring(1);
+                }
+                currentText = currentText + "2";
+                break;
+            case "3":
+                if (zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = currentText.substring(1);
+                }
+                currentText = currentText + "3";
+                break;
+            case "4":
+                if (zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = currentText.substring(1);
+                }
+                currentText = currentText + "4";
+                break;
+            case "5":
+                if (zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = currentText.substring(1);
+                }
+                currentText = currentText + "5";
+                break;
+            case "6":
+                if (zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = currentText.substring(1);
+                }
+                currentText = currentText + "6";
+                break;
+            case "7":
+                if (zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = currentText.substring(1);
+                }
+                currentText = currentText + "7";
+                break;
+            case "8":
+                if (zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = currentText.substring(1);
+                }
+                currentText = currentText + "8";
+                break;
+            case "9":
+                if (zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = currentText.substring(1);
+                }
+                currentText = currentText + "9";
+                break;
+            case "0":
+                if(zeroIsFirst(currentText) && currentText.length() == 1){
+                    currentText = "0";
+                }
+                else {
+                    currentText = currentText + "0";
+                }
+                break;
 
             case ".":
+                if (zeroIsFirst(currentText)){
+                    currentText = "0.";
+                }else
                 if (!currentText.contains(".")){
                     currentText = currentText + ".";
                 }
@@ -110,6 +166,13 @@ public class MainActivity extends AppCompatActivity {
 
         editTextInputNumber.setText(currentText);
 
+    }
+
+    private boolean zeroIsFirst(String currentText) {
+        if (currentText.equals("")){
+            return true;
+        }
+        return currentText.charAt(0) == '0';
     }
 
     private void operationClicked(String operation) {
@@ -139,22 +202,28 @@ public class MainActivity extends AppCompatActivity {
         String newNumber = editTextInputNumber.getText().toString();
         Double result = 0.0;
 
-        switch (operator){
-            case "+":
-                result = Double.parseDouble(oldNumber) + Double.parseDouble(newNumber);
-                break;
-            case "-":
-                result = Double.parseDouble(oldNumber) - Double.parseDouble(newNumber);
-                break;
-            case "*":
-                result = Double.parseDouble(oldNumber) * Double.parseDouble(newNumber);
-                break;
-            case "/":
-                result = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
-                break;
+        if (Double.parseDouble(newNumber) < 0.00000001 && operator.equals("/")
+                || newNumber.equals("") && operator.equals("/")){
+            Toast.makeText(this, "Division by zero error!", Toast.LENGTH_LONG).show();
+        }else{
+            switch (operator){
+                case "+":
+                    result = Double.parseDouble(oldNumber) + Double.parseDouble(newNumber);
+                    break;
+                case "-":
+                    result = Double.parseDouble(oldNumber) - Double.parseDouble(newNumber);
+                    break;
+                case "*":
+                    result = Double.parseDouble(oldNumber) * Double.parseDouble(newNumber);
+                    break;
+                case "/":
+                    result = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
+                    break;
+            }
+
+            editTextInputNumber.setText(String.valueOf(result));
         }
 
-        editTextInputNumber.setText(String.valueOf(result));
     }
 
     private void clearClicked() {
